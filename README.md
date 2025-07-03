@@ -4,6 +4,18 @@ A RESTful API built with Laravel to manage products and their variations, suppor
 
 ---
 
+
+### 1. Setup
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan db:seed --class=ProductSeeder 
+php artisan serve
+
+
 ## 🧱 Database Structure
 
 ### `products` Table
@@ -36,16 +48,6 @@ A RESTful API built with Laravel to manage products and their variations, suppor
 ---
 
 ## 🧪 How to Test Endpoints
-
-### 1. Setup
-
-```bash
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan db:seed --class=ProductSeeder 
-php artisan serve
 
 
 API Routes
