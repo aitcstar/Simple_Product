@@ -51,13 +51,15 @@ php artisan serve
 
 
 API Routes
-| Method | Endpoint                | Description                |
+| Method | Endpoint                                                                          | Description                |
 | ------ | ----------------------- | -------------------------- |
-| GET    | `/api/v1/product`      | List products with filters |
-| GET    | `/api/v1/product/{id}` | Show single product        |
-| POST   | `/api/v1/product`      | Create new product         |
-| PUT    | `/api/v1/product/{id}` | Update existing product    |
-| DELETE | `/api/v1/product/{id}` | Delete product             |
+| GET    | `/api/v1/product/index`                                                           | List products |
+| GET    | `/api/v1/product/index?type=simple&name=iPhone&min_price=100&max_price=1500`      | List products with filters |
+
+| GET    | `/api/v1/product/show/{id}`                                                       | Show single product        |
+| POST   | `/api/v1/product/store`                                                           | Create new product         |
+| PUT    | `/api/v1/product/update/{id}`                                                      | Update existing product    |
+| DELETE | `/api/v1/product/destroy/{id}`                                                    | Delete product             |
 
 Filtering Parameters (GET /products)
 
@@ -67,3 +69,79 @@ Filtering Parameters (GET /products)
 | `name`      | `iphone` | Partial match on name in `en` or `ar` |
 | `min_price` | `500`    | Minimum price                         |
 | `max_price` | `1000`   | Maximum price                         |
+
+## 🧪 Postman
+1- GET URL/api/v1/product/index
+2- GET URL/api/v1/product/index?type=simple&name=iPhone&min_price=100&max_price=1500
+3- POST URL/api/v1/product/store
+{
+  "type": "simple",
+  "name": {
+    "en": "iPhone 15",
+    "ar": "آيفون 15"
+  },
+  "price": 999,
+  "original_price": 1199,
+  "is_featured": true,
+  "ai_suggested": true
+}
+//////////////////////////
+{
+  "type": "variable",
+  "name": {
+    "en": "Running Shoes",
+    "ar": "أحذية جري"
+  },
+  "discount": 100,
+  "image": "https://via.placeholder.com/300",
+  "is_featured": false,
+  "ai_suggested": true,
+  "variations": [
+    {
+      "price": 120,
+      "variations": { "size": 42, "color": "Black" }
+    },
+    {
+      "price": 130,
+      "variations": { "size": 43, "color": "White" }
+    }
+  ]
+}
+4- GET URL/api/v1/product/show/1
+5- PUT URL/api/v1/product/update/1
+{
+  "type": "simple",
+  "name": {
+    "en": "MacBook Pro",
+    "ar": "ماك بوك برو"
+  },
+  "price": 2000,
+  "original_price": 2500,
+  "discount": 500,
+  "image": "https://via.placeholder.com/300",
+  "is_featured": true,
+  "ai_suggested": false
+}
+//////////////////////////////////
+{
+  "type": "variable",
+  "name": {
+    "en": "Running Shoes",
+    "ar": "أحذية جري"
+  },
+  "discount": 100,
+  "image": "https://via.placeholder.com/300",
+  "is_featured": false,
+  "ai_suggested": true,
+  "variations": [
+    {
+      "price": 120,
+      "variations": { "size": 42, "color": "Black" }
+    },
+    {
+      "price": 130,
+      "variations": { "size": 43, "color": "White" }
+    }
+  ]
+}
+6- DELETE URL/api/v1/product/destroy/1
