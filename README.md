@@ -53,11 +53,11 @@ php artisan serve
 API Routes
 | Method | Endpoint                | Description                |
 | ------ | ----------------------- | -------------------------- |
-| GET    | `/api/v1/products`      | List products with filters |
-| GET    | `/api/v1/products/{id}` | Show single product        |
-| POST   | `/api/v1/products`      | Create new product         |
-| PUT    | `/api/v1/products/{id}` | Update existing product    |
-| DELETE | `/api/v1/products/{id}` | Delete product             |
+| GET    | `/api/v1/product`      | List products with filters |
+| GET    | `/api/v1/product/{id}` | Show single product        |
+| POST   | `/api/v1/product`      | Create new product         |
+| PUT    | `/api/v1/product/{id}` | Update existing product    |
+| DELETE | `/api/v1/product/{id}` | Delete product             |
 
 Filtering Parameters (GET /products)
 
